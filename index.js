@@ -61,8 +61,8 @@ const server = http.createServer((req,res)=>{
 
     // read File
     fs.readFile(filePath,(err,content)=>{
-        if (err){
-            if (err.code === 'ENDENT'){
+        if(err){
+            if(err.code == 'ENOENT'){
                 // page not found
                 fs.readFile(path.join(__dirname, 'public', '404.html'), (err,content)=> {
                     res.writeHead(200,{'Content-Type':'text/html'});
